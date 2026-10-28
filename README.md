@@ -144,6 +144,7 @@ Code and write-up are released under the [MIT license](LICENSE). Model weights k
 
 Author: [@zxb-08](https://github.com/zxb-08)
 
+<br>
 ---
 
 ## Why I did this
