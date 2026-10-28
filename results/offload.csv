@@ -1,0 +1,6 @@
+model,setting,loaded_size_gb,gpu_pct,cpu_pct,num_ctx,eval_rate_tok_s,note
+qwen3-4b-instruct,default env,2.9,100,0,4096,56.8,fits fully on the GPU
+qwen3-8b,default env,6.0,70,30,4096,16.24,G1 first run
+qwen3-8b,flash attention + KV cache env vars,5.7,73,27,4096,17.38,G2 run (representative)
+qwen3-8b,same + context 2048,5.5,75,25,2048,18.56,G1 re-run at reduced context
+cyber-8b,default env,5.4,78,22,4096,20.4,mean of completed runs

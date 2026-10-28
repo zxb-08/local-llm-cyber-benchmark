@@ -1,0 +1,38 @@
+Local LLM cybersecurity benchmark - environment
+Date of testing : 25 October 2026
+
+Hardware
+  Laptop        : ASUS Vivobook (V16)
+  GPU           : NVIDIA GeForce RTX 4050 Laptop GPU, 6141 MiB total VRAM
+                  (idle baseline ~290-390 MiB in use -> roughly 5.7 GB usable)
+  RAM           : 16 GB
+  OS            : Windows 11, Windows PowerShell / Windows Terminal
+
+Software (as printed by the tools)
+  Ollama        : 0.40.11   (ollama --version)
+  NVIDIA driver : 610.74    (nvidia-smi, CUDA UMD 13.3)
+  Runner        : llama.cpp (ollama ps -> RUNNER)
+
+Environment variables (set with setx, Ollama restarted afterwards)
+  OLLAMA_FLASH_ATTENTION = 1
+  OLLAMA_KEEP_ALIVE      = 30m
+  OLLAMA_KV_CACHE_TYPE   = q8_0     (added after the first Qwen3 8B test)
+
+Models (ollama list; short IDs as printed)
+  qwen3:4b-instruct                                  0edcdef34593   2.5 GB   used in the benchmark
+  qwen3:8b                                           500a1f067a9f   5.2 GB   used in the benchmark
+  huihui_ai/foundation-sec-abliterated:8b-Q4_K_M     0a7457372cbc   4.9 GB   used in the benchmark
+  qwen3:4b                                           359d7dd4bcda   2.5 GB   pulled first; turned out to be a Thinking build, excluded
+
+Pull commands
+  ollama pull qwen3:4b-instruct
+  ollama pull qwen3:8b
+  ollama pull huihui_ai/foundation-sec-abliterated:8b-Q4_K_M
+
+Session settings used for every prompt (typed by hand, one line at a time)
+  /set parameter num_ctx 4096
+  /set parameter temperature 0.2
+  qwen3:8b only                : /set nothink
+  foundation-sec (cyber) only  : /set system You are a helpful assistant.
+  new context per prompt       : /clear
+  timing                       : ollama run <model> --verbose  (eval rate = generation tokens/s)

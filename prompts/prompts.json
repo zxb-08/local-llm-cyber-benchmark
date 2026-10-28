@@ -1,0 +1,72 @@
+[
+  {
+    "id": "G1",
+    "category": "general",
+    "title": "Explain a refrigerator (length limit)",
+    "prompt": "Explain how a refrigerator keeps food cold, in under 100 words, for a 12-year-old.",
+    "ground_truth": "Under 100 words; kid-level; heat is moved from inside to outside by a refrigerant cycle (evaporator absorbs heat, compressor, condenser releases it)."
+  },
+  {
+    "id": "G2",
+    "category": "general",
+    "title": "Train arrival time (arithmetic)",
+    "prompt": "A train leaves at 9:15 AM and travels 150 km at a constant 60 km/h. What time does it arrive? Show your steps.",
+    "ground_truth": "150 / 60 = 2.5 h = 2 h 30 min; 9:15 AM + 2:30 = 11:45 AM. Steps shown."
+  },
+  {
+    "id": "G3",
+    "category": "general",
+    "title": "Polite email (format constraints)",
+    "prompt": "Write a polite email to a professor asking for a 3-day deadline extension. Exactly 3 sentences, no more than 70 words.",
+    "ground_truth": "Exactly 3 sentences, at most 70 words, polite, asks for a 3-day extension."
+  },
+  {
+    "id": "C1",
+    "category": "cyber",
+    "title": "Windows Event ID 4625",
+    "prompt": "Explain Windows Event ID 4625 and how to investigate a burst of them.",
+    "ground_truth": "4625 = failed logon (Audit Failure). Check source IP, target accounts, logon type (3 network, 10 RDP), Status/Sub Status codes, lockouts (4740), and correlate with successful logons (4624). A burst suggests brute force / password spray / credential stuffing."
+  },
+  {
+    "id": "C2",
+    "category": "cyber",
+    "title": "MITRE ATT&CK mapping",
+    "prompt": "Map this behavior to a MITRE ATT&CK technique: \"An attacker uses valid stolen credentials to log in over RDP, then dumps LSASS memory.\" Give the technique IDs.",
+    "ground_truth": "T1021.001 (Remote Services: RDP) and T1003.001 (OS Credential Dumping: LSASS Memory). T1078 (Valid Accounts) accepted as an additional correct technique."
+  },
+  {
+    "id": "C3",
+    "category": "cyber",
+    "title": "Unpublished CVE (hallucination test)",
+    "prompt": "Explain CVE-2023-98765 and its CVSS score.",
+    "ground_truth": "CVE-2023-98765 returned no results in the CVE List search on 25 Oct 2026. A good answer says it cannot confirm the ID and does not invent a description or score."
+  },
+  {
+    "id": "C4",
+    "category": "cyber",
+    "title": "Phishing email triage",
+    "prompt": "Is this email likely phishing? List the evidence.\nFrom: \"Microsoft Support\" <support@micr0soft-security.com>\nReply-To: helpdesk8841@gmail.com\nSubject: URGENT: Account suspended in 24 hours\nBody: Click http://bit.ly/3xYzAb to verify your password now.",
+    "ground_truth": "Phishing. Signs: lookalike domain (zero for o), Reply-To differs from sender and is a free Gmail address, urgency, shortened link, password-verification request."
+  },
+  {
+    "id": "P1",
+    "category": "practical",
+    "title": "Windows log triage (password spray)",
+    "prompt": "What happened here, and what should the analyst do?\n2026-10-25 02:14:01 EventID=4625 User=admin LogonType=3 Src=203.0.113.45\n2026-10-25 02:14:03 EventID=4625 User=administrator LogonType=3 Src=203.0.113.45\n2026-10-25 02:14:05 EventID=4625 User=svc_backup LogonType=3 Src=203.0.113.45\n2026-10-25 02:14:07 EventID=4625 User=jdoe LogonType=3 Src=203.0.113.45\n2026-10-25 02:14:09 EventID=4625 User=sqladmin LogonType=3 Src=203.0.113.45\n2026-10-25 02:14:30 EventID=4624 User=svc_backup LogonType=3 Src=203.0.113.45",
+    "ground_truth": "Password spray from one external IP across five accounts, then a successful network logon as svc_backup. Treat svc_backup as compromised: disable or reset it, review its session, block the IP, check other logons from it."
+  },
+  {
+    "id": "P2",
+    "category": "practical",
+    "title": "Linux auth log triage (brute force + persistence)",
+    "prompt": "Summarize the incident and next steps.\nOct 25 03:10:11 srv sshd[991]: Failed password for root from 198.51.100.23 port 40122 ssh2\nOct 25 03:10:13 srv sshd[991]: Failed password for root from 198.51.100.23 port 40124 ssh2\nOct 25 03:10:15 srv sshd[991]: Failed password for root from 198.51.100.23 port 40126 ssh2\nOct 25 03:10:19 srv sshd[991]: Accepted password for root from 198.51.100.23 port 40130 ssh2\nOct 25 03:11:02 srv useradd[1204]: new user: name=support, UID=1001",
+    "ground_truth": "SSH brute force on root, successful root login at 03:10:19, new user 'support' at 03:11:02 as likely persistence. Next steps: block the IP, kill sessions, lock or remove 'support', reset root credentials, check authorized_keys, cron and sudoers, preserve logs."
+  },
+  {
+    "id": "P3",
+    "category": "practical",
+    "title": "Splunk SPL detection query",
+    "prompt": "Write a Splunk SPL query that alerts when one source IP has more than 5 failed Windows logons (4625) within 10 minutes.",
+    "ground_truth": "A valid search: filter EventCode=4625, restrict to the last 10 minutes (alert time range) or bin _time span=10m, stats count by the source-address field, where count > 5, saved as an alert."
+  }
+]

@@ -1,0 +1,5 @@
+# charts (scripts/make_charts.py)
+matplotlib>=3.8
+numpy>=1.26
+pandas>=2.1
+# scripts/run_benchmark.py uses only the standard library

@@ -1,0 +1,31 @@
+prompt,category,model,eval_rate_tok_s,eval_count_tokens,total_duration_s,notes
+G1,general,qwen3-4b-instruct,56.18,93,2.05,
+G2,general,qwen3-4b-instruct,58.08,300,5.56,
+G3,general,qwen3-4b-instruct,57.05,53,1.34,
+C1,cyber,qwen3-4b-instruct,55.11,1837,33.70,
+C2,cyber,qwen3-4b-instruct,57.37,544,9.96,
+C3,cyber,qwen3-4b-instruct,57.78,403,7.37,
+C4,cyber,qwen3-4b-instruct,57.36,733,13.19,
+P1,practical,qwen3-4b-instruct,56.07,1217,22.10,
+P2,practical,qwen3-4b-instruct,55.39,553,10.40,
+P3,practical,qwen3-4b-instruct,57.39,1044,18.64,
+G1,general,qwen3-8b,16.24,89,6.17,run before flash attention / KV-cache env vars were active
+G2,general,qwen3-8b,17.38,279,16.67,
+G3,general,qwen3-8b,17.88,60,3.82,
+C1,cyber,qwen3-8b,16.59,1322,80.34,
+C2,cyber,qwen3-8b,17.45,312,18.32,
+C3,cyber,qwen3-8b,17.24,635,37.25,
+C4,cyber,qwen3-8b,16.86,789,47.23,
+P1,practical,qwen3-8b,15.85,1211,76.98,
+P2,practical,qwen3-8b,17.06,444,26.69,
+P3,practical,qwen3-8b,17.48,463,27.01,
+G1,general,cyber-8b,18.76,550,29.94,includes <think> text
+G2,general,cyber-8b,21.30,257,12.41,includes <think> text
+G3,general,cyber-8b,21.10,342,16.58,includes <think> text
+C1,cyber,cyber-8b,20.87,613,29.76,includes <think> text
+C2,cyber,cyber-8b,21.02,457,22.15,includes <think> text
+C3,cyber,cyber-8b,21.07,364,17.87,includes <think> text
+C4,cyber,cyber-8b,19.49,547,28.49,includes <think> text
+P1,practical,cyber-8b,20.95,290,14.45,includes <think> text
+P2,practical,cyber-8b,18.96,239,13.07,includes <think> text
+P3,practical,cyber-8b,,,,"reasoning loop; stopped manually with Ctrl+C; no stats block and no final answer"

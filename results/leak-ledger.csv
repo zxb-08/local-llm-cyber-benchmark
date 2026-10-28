@@ -1,0 +1,11 @@
+prompt,think_text_in_output,final_answer_follows,total_tokens,total_time_s
+G1,yes,yes,550,29.94
+G2,yes,yes,257,12.41
+G3,yes,yes,342,16.58
+C1,yes,yes,613,29.76
+C2,yes,yes,457,22.15
+C3,yes,yes,364,17.87
+C4,yes,yes,547,28.49
+P1,yes,yes,290,14.45
+P2,yes,yes,239,13.07
+P3,loop,no,,

@@ -1,0 +1,31 @@
+prompt,category,model,score_0_5,correctness,completeness,instruction_following,hallucination,verdict
+G1,general,qwen3-4b-instruct,3,,,,,Under the limit and kid-friendly but skips the compressor and gets the evaporation cause backwards
+G2,general,qwen3-4b-instruct,1,1,,5,,Right method; final answer 12:45 PM is wrong (correct 11:45 AM)
+G3,general,qwen3-4b-instruct,4,,,5,,Exactly 3 sentences and ~33 words; invented names
+G1,general,qwen3-8b,4,,,,,Correct mechanism within the limit; no kid-level analogy in run 1
+G2,general,qwen3-8b,5,5,,5,,Correct: 11:45 AM with clear steps
+G3,general,qwen3-8b,3,,,3,,4 sentences instead of 3; under the word limit; added a subject line
+G1,general,cyber-8b,2,2,,2,,~130 words (limit 100); parts list rather than a kid-level explanation; belts-and-pulleys error
+G2,general,cyber-8b,0,0,,1,,Decimal-time error; final answer ~12:00 PM; no steps in the final answer
+G3,general,cyber-8b,1,,,0,,7 sentences and ~87 words against 3 and 70
+C1,cyber,qwen3-4b-instruct,2,2,4,4,2,Good structure; wrong logon types and wrong event for lockout (4648)
+C2,cyber,qwen3-4b-instruct,1,1,,3,1,Wrong IDs (T1078/T1087/T1548) and wrong technique names
+C3,cyber,qwen3-4b-instruct,4,4,,4,5,Declined to invent details for the unpublished CVE
+C4,cyber,qwen3-4b-instruct,4,4,4,4,4,4 of 5 signs; misquoted the Reply-To address
+P1,practical,qwen3-4b-instruct,3,3,3,4,4,Right story; miscounted failures (6 vs 5); called it brute force not spray; blocks the IP
+P2,practical,qwen3-4b-instruct,4,4,3,4,5,Correct incident; hedged on persistence; no IP block or session kill
+P3,practical,qwen3-4b-instruct,2,2,4,3,2,Invented parse command; streamstats window misuse; valid alert setup steps
+C1,cyber,qwen3-8b,3,3,3,4,3,Logon type 3 right; type 10 and 4626 wrong; inconsistent sample log
+C2,cyber,qwen3-8b,3,3,,4,3,Right families; wrong sub-technique IDs (T1003.002 and T1021.02)
+C3,cyber,qwen3-8b,2,3,,3,2,Said unknown then wrote a labelled-hypothetical CVE with CVSS 9.8
+C4,cyber,qwen3-8b,4,4,5,3,4,All 5 signs; padded with weak points
+P1,practical,qwen3-8b,3,3,3,4,3,Counted 5 failures correctly; logon type 3 mislabelled; no IP block; hedged on compromise
+P2,practical,qwen3-8b,4,4,3,5,5,Called the new user persistence; no IP block
+P3,practical,qwen3-8b,2,2,2,3,2,Last example has a valid base search; aggregation broken; invented alert command
+C1,cyber,cyber-8b,1,1,1,3,1,Never says 4625 is a failed logon; treats a burst as a benign loop
+C2,cyber,cyber-8b,4,4,3,5,4,Correct parent technique IDs and names (T1078 T1021 T1003)
+C3,cyber,cyber-8b,0,0,1,3,0,Stated CVSS 9.8 as fact for an unpublished CVE
+C4,cyber,cyber-8b,3,3,3,3,3,Right verdict; terse; read Reply-To as the recipient
+P1,practical,cyber-8b,0,0,0,1,1,Read a spray plus a successful logon as an automated loop; no actions
+P2,practical,cyber-8b,1,2,1,1,0,Invented a useradd command and a password change yesterday; no next steps
+P3,practical,cyber-8b,0,0,0,0,,Reasoning loop; no query produced
