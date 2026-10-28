@@ -2,6 +2,12 @@
   <img src="charts/banner.png" alt="Local LLMs for Cybersecurity: a benchmark on a 6 GB laptop GPU" width="100%">
 </p>
 
+> I kept seeing LLMs everywhere and thought it would be cool to run one myself.
+> So I picked it as my project for the week and put a few models through some
+> cybersecurity questions on my laptop.
+
+
+
 # Local LLMs for Cybersecurity on Consumer Hardware
 
 **A hands-on benchmark of three local models on an RTX 4050 laptop GPU (6 GB), run with Ollama.**
@@ -144,9 +150,3 @@ Code and write-up are released under the [MIT license](LICENSE). Model weights k
 
 Author: [@zxb-08](https://github.com/zxb-08)
 
-
----
-
-## Why I did this
-
-I kept seeing LLMs everywhere and thought it would be cool to run one myself. So I picked it as my project for the week and put a few models through some cybersecurity questions on my laptop. If you try it yourself, I'd like to hear what you find.
