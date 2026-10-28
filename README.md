@@ -143,3 +143,9 @@ Models: Qwen3 (Alibaba), Foundation-Sec-8B (Cisco Foundation AI) and the `huihui
 Code and write-up are released under the [MIT license](LICENSE). Model weights keep their own licenses.
 
 Author: [@zxb-08](https://github.com/zxb-08)
+
+---
+
+## Why I did this
+
+I kept seeing LLMs everywhere and thought it would be cool to run one myself. So I picked it as my project for the week and put a few models through some cybersecurity questions on my laptop. If you try it yourself, I'd like to hear what you find.
